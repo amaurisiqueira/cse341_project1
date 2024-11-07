@@ -1,0 +1,5 @@
+####
+GET https://cse341-project1-5jlz.onrender.com/user/getall HTTP/1.1
+
+####
+GET https://cse341-project1-5jlz.onrender.com/user/getid/6726c0707a3ff02423980435 HTTP/1.1
