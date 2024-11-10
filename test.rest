@@ -1,5 +1,11 @@
-####
+#### get all elements in a local project
+GET http://localhost:8089/user/getall HTTP/1.1
+##### get all elements from Render
 GET https://cse341-project1-5jlz.onrender.com/user/getall HTTP/1.1
 
-####
+
+#### local get by ID
+GET http://localhost:8089/user/getid/6726c0707a3ff02423980435  HTTP/1.1
+
+#### get by ID from render.com
 GET https://cse341-project1-5jlz.onrender.com/user/getid/6726c0707a3ff02423980435 HTTP/1.1
