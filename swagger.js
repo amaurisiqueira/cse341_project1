@@ -8,6 +8,10 @@ const options = {
       title: "CSE341 Project 1",
       version: "0.0.2",
     },
+    contact: {
+      name: "Amauri Siqueira",
+      url: "https://cse341-project1-5jlz.onrender.com",
+    },
   },
   schemes: ["https"],
   apis: [`${path.join(__dirname, "./routers/*.js")}`],

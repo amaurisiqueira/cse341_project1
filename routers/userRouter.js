@@ -75,9 +75,6 @@ usersRouter.post("/add", userController.createUser);
  *               username:
  *                 type: string
  *                 example: "juanito"
- *               name:
- *                 type: string
- *                 example: "juanito perez"
  *               email:
  *                 type: string
  *                 format: email
@@ -85,6 +82,18 @@ usersRouter.post("/add", userController.createUser);
  *               ipaddress:
  *                 type: string
  *                 example: "192.168.1.x"
+ *               firstName:
+ *                 type: string
+ *                 example: "Perico"
+ *               lastName:
+ *                 type: string
+ *                 example: "Los palotes"
+ *               favoriteColor:
+ *                 type: string
+ *                 example: "green"
+ *               birthday:
+ *                 type: string
+ *                 example: "05-25-1955"
  *     responses:
  *       204:
  *         description: User created successfully. *
@@ -119,17 +128,26 @@ usersRouter.put("/:id", userController.updateUser);
  *             properties:
  *               username:
  *                 type: string
- *                 example: "kkck"
- *               name:
- *                 type: string
- *                 example: "karlos kleiton cool kole"
+ *                 example: "juanito"
  *               email:
  *                 type: string
  *                 format: email
- *                 example: "kkck@entel.cl"
+ *                 example: "juanito@entel.cl"
  *               ipaddress:
  *                 type: string
- *                 example: "192.168.2.10"
+ *                 example: "192.168.1.x"
+ *               firstName:
+ *                 type: string
+ *                 example: "Perico"
+ *               lastName:
+ *                 type: string
+ *                 example: "Los palotes"
+ *               favoriteColor:
+ *                 type: string
+ *                 example: "green"
+ *               birthday:
+ *                 type: string
+ *                 example: "05-25-1955"
  *     responses:
  *       204:
  *         description: User updated successfully.

@@ -39,9 +39,12 @@ const createUser = async (req, res) => {
   try {
     const user = {
       username: req.body.username,
-      name: req.body.name,
       email: req.body.email,
       ipaddress: req.body.ipaddress,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      favoriteColor: req.body.favoriteColor,
+      birthday: req.body.birthday,
     };
 
     const result = await usersData.createSingle(user);
@@ -62,9 +65,12 @@ const updateUser = async (req, res) => {
   try {
     const user = {
       username: req.body.username,
-      name: req.body.name,
       email: req.body.email,
       ipaddress: req.body.ipaddress,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      favoriteColor: req.body.favoriteColor,
+      birthday: req.body.birthday,
     };
     const userId = new ObjectId(req.params.id);
     const result = await usersData.updateSingle(userId, user);
