@@ -7,10 +7,11 @@ const options = {
     info: {
       title: "CSE341 Project 1",
       version: "0.0.2",
-    },
-    contact: {
-      name: "Amauri Siqueira",
-      url: "https://cse341-project1-5jlz.onrender.com",
+      contact: {
+        name: "Amauri Siqueira",
+        url: "https://cse341-project1-5jlz.onrender.com",
+        email: "siq2585@byui.edu",
+      },
     },
   },
   schemes: ["https"],
