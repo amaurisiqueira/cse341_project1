@@ -1,5 +1,7 @@
 const ObjectId = require("mongodb").ObjectId;
 const usersData = require("../models/usersModel");
+const validateUser = require('../validation/validateUser');
+const { validationResult } = require('express-validator');
 
 const getAll = async (req, res) => {
   const result = await usersData.getAll();
@@ -32,7 +34,7 @@ const getSimgle = async (req, res) => {
   }
 };
 
-const createUser = async (req, res) => {
+/*const createUser = async (req, res) => {
   // console.log(req.params.id);
   //console.log(req);
   //console.log(req.body);
@@ -59,7 +61,62 @@ const createUser = async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 };
+*/
 
+
+const createUser = async (req, res) => {
+  try {
+    
+
+
+
+    /*
+
+ try {
+    await Promise.all(validateUser.map(validation => validation.run(req)));
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    // Código para crear el usuario...
+  } catch (error) {
+    // Manejo de errores...
+  }
+
+    
+    */
+    await Promise.all(validateUser.map(validation => validation.run(req)));
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const user = {
+      username: req.body.username,
+      email: req.body.email,
+      ipaddress: req.body.ipaddress,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      favoriteColor: req.body.favoriteColor,
+      birthday: req.body.birthday,
+    };
+
+    const result = await usersData.createSingle(user);
+
+    if (result.acknowledged) {
+      res.status(204).send();
+    } else {
+      res.status(404).json({ error: "Bad request, invalid input" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+		
 // usersRouter.put("/:id", userController.updateUser);
 const updateUser = async (req, res) => {
   try {
