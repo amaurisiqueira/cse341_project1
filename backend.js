@@ -28,6 +28,11 @@ app.use("/", mainRouter);
 
 app.use("/user", usersRouter);
 
+process.on("uncaughtException", (err, origin) => {
+  // Código para manejar el error
+  console.log(process.strerr.fd, ` Caught exception: ${err}`);
+});
+
 mongodb.initDb((err) => {
   if (err) {
     console.log(err);

@@ -1,7 +1,7 @@
 const ObjectId = require("mongodb").ObjectId;
 const usersData = require("../models/usersModel");
-const validateUser = require('../validation/validateUser');
-const { validationResult } = require('express-validator');
+const validateUser = require("../validation/validateUser");
+const { validationResult } = require("express-validator");
 
 const getAll = async (req, res) => {
   const result = await usersData.getAll();
@@ -63,13 +63,8 @@ const getSimgle = async (req, res) => {
 };
 */
 
-
 const createUser = async (req, res) => {
   try {
-    
-
-
-
     /*
 
  try {
@@ -87,7 +82,7 @@ const createUser = async (req, res) => {
 
     
     */
-    await Promise.all(validateUser.map(validation => validation.run(req)));
+    await Promise.all(validateUser.map((validation) => validation.run(req)));
 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -116,10 +111,17 @@ const createUser = async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 };
-		
+
 // usersRouter.put("/:id", userController.updateUser);
 const updateUser = async (req, res) => {
   try {
+    await Promise.all(validateUser.map((validation) => validation.run(req)));
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
     const user = {
       username: req.body.username,
       email: req.body.email,
